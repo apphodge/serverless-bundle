@@ -209,6 +209,17 @@ function loaders() {
         ]
       },
       {
+        test: /\.hbs$/,
+        loader: "handlebars-loader",
+        options: {
+          helperDirs: path.join(__dirname, 'src/templates/helpers'),
+          partialDirs: path.join(__dirname, 'src/templates/partials'),
+          precompileOptions: {
+            knownHelpersOnly: false, // Allow additional helpers at runtime
+          },
+        },
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [
           "isomorphic-style-loader",
